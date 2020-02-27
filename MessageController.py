@@ -25,15 +25,15 @@ class MessageController:
             print(message.sid)
 
     def send_warningMsg(self,receivers):
-        sender = 'episodes27@gmail.com'
+        sender = 'utsiotlab@gmail.com'
         msg = MIMEText("""Tesla Song called emergency service after Deepcare detected a hard fall. You receive this email because Tesla listed you as an emergency contact.\nLocation: https://goo.gl/maps/at836pE7yXf5tDkR9""")
         msg['Subject'] = "Test: Emergency SOS"
         msg['From'] = sender
         msg['To'] = ", ".join(receivers)
         try:
-            smtp = smtplib.SMTP('in-v3.mailjet.com', 587)
+            smtp = smtplib.SMTP('smtp.gmail.com', 587)
             smtp.starttls()
-            smtp.login('a1920267765f1d53e7df94b1eea45fdb', '467c79449ea4578464d742dbba2f4db5')
+            smtp.login('utsiotlab@gmail.com', 'gta8875833')
             smtp.sendmail(sender, receivers, msg.as_string())
             print("Successfully sent email")
         except smtplib.SMTPException:
